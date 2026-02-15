@@ -1,4 +1,6 @@
 import { ExternalLink } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -21,26 +23,43 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 section-gradient">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Projects</h2>
+        <AnimatedSection>
+          <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Projects</h2>
+        </AnimatedSection>
         <div className="space-y-6">
           {projects.map((project, i) => (
-            <div key={i} className="bg-card rounded-xl p-6 card-shadow hover:card-shadow-hover transition-shadow group">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">{project.title}</h3>
-                  <span className="text-xs text-muted-foreground">{project.period}</span>
+            <AnimatedSection key={i} delay={i * 0.15}>
+              <motion.div
+                className="project-card glass-card rounded-xl p-6 group"
+                whileHover={{ y: -6, boxShadow: 'var(--card-shadow-hover)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">{project.title}</h3>
+                    <span className="text-xs text-muted-foreground">{project.period}</span>
+                  </div>
+                  <motion.div whileHover={{ scale: 1.2, rotate: 15 }}>
+                    <ExternalLink size={18} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-1" />
+                  </motion.div>
                 </div>
-                <ExternalLink size={18} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-1" />
-              </div>
-              <p className="text-muted-foreground text-sm mt-3 leading-relaxed">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="bg-accent text-accent-foreground text-xs font-medium px-2.5 py-1 rounded">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+                <p className="text-muted-foreground text-sm mt-3 leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.tags.map((tag, ti) => (
+                    <motion.span
+                      key={tag}
+                      className="bg-accent text-accent-foreground text-xs font-medium px-2.5 py-1 rounded"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.15 + ti * 0.05 }}
+                    >
+                      {tag}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

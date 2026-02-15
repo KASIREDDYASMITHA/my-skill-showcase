@@ -5,10 +5,23 @@ import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Certifications from '@/components/Certifications';
 import Contact from '@/components/Contact';
+import CustomCursor from '@/components/CustomCursor';
+import ScrollProgress from '@/components/ScrollProgress';
+import BackToTop from '@/components/BackToTop';
+import BackgroundBlobs from '@/components/BackgroundBlobs';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <motion.div
+      className="min-h-screen bg-background relative"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <CustomCursor />
+      <ScrollProgress />
+      <BackgroundBlobs />
       <Navbar />
       <Hero />
       <About />
@@ -16,7 +29,8 @@ const Index = () => {
       <Projects />
       <Certifications />
       <Contact />
-    </div>
+      <BackToTop />
+    </motion.div>
   );
 };
 

@@ -1,4 +1,6 @@
 import { GraduationCap } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+import { motion } from 'framer-motion';
 
 const education = [
   {
@@ -19,24 +21,35 @@ const About = () => {
   return (
     <section id="about" className="py-20 section-gradient">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Education</h2>
+        <AnimatedSection>
+          <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Education</h2>
+        </AnimatedSection>
         <div className="space-y-6">
           {education.map((edu, i) => (
-            <div key={i} className="bg-card rounded-xl p-6 card-shadow hover:card-shadow-hover transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-accent rounded-lg text-accent-foreground shrink-0">
-                  <GraduationCap size={22} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{edu.degree}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">{edu.school}</p>
-                  <div className="flex flex-wrap gap-3 mt-2 text-xs text-muted-foreground">
-                    <span className="bg-secondary px-2 py-1 rounded">{edu.period}</span>
-                    <span className="bg-accent text-accent-foreground px-2 py-1 rounded font-medium">{edu.grade}</span>
+            <AnimatedSection key={i} delay={i * 0.15}>
+              <motion.div
+                className="glass-card rounded-xl p-6"
+                whileHover={{ y: -4, boxShadow: 'var(--card-shadow-hover)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <div className="flex items-start gap-4">
+                  <motion.div
+                    className="p-3 bg-accent rounded-lg text-accent-foreground shrink-0"
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                  >
+                    <GraduationCap size={22} />
+                  </motion.div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">{edu.degree}</h3>
+                    <p className="text-muted-foreground text-sm mt-1">{edu.school}</p>
+                    <div className="flex flex-wrap gap-3 mt-2 text-xs text-muted-foreground">
+                      <span className="bg-secondary px-2 py-1 rounded">{edu.period}</span>
+                      <span className="bg-accent text-accent-foreground px-2 py-1 rounded font-medium">{edu.grade}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
