@@ -29,22 +29,22 @@ const About = () => {
             <AnimatedSection key={i} delay={i * 0.15}>
               <motion.div
                 className="glass-card rounded-xl p-6"
-                whileHover={{ y: -4, boxShadow: 'var(--card-shadow-hover)' }}
+                whileHover={{ y: -4, boxShadow: '0 4px 20px hsl(187 82% 53% / 0.1), 0 8px 32px hsl(0 0% 0% / 0.3)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <div className="flex items-start gap-4">
                   <motion.div
-                    className="p-3 bg-accent rounded-lg text-accent-foreground shrink-0"
+                    className="p-3 rounded-lg shrink-0 border border-primary/20 bg-primary/5"
                     whileHover={{ rotate: 10, scale: 1.1 }}
                   >
-                    <GraduationCap size={22} />
+                    <GraduationCap size={22} className="text-primary" />
                   </motion.div>
                   <div>
                     <h3 className="font-semibold text-foreground">{edu.degree}</h3>
                     <p className="text-muted-foreground text-sm mt-1">{edu.school}</p>
                     <div className="flex flex-wrap gap-3 mt-2 text-xs text-muted-foreground">
-                      <span className="bg-secondary px-2 py-1 rounded">{edu.period}</span>
-                      <span className="bg-accent text-accent-foreground px-2 py-1 rounded font-medium">{edu.grade}</span>
+                      <span className="border border-border px-2 py-1 rounded font-mono">{edu.period}</span>
+                      <span className="border border-primary/30 text-primary px-2 py-1 rounded font-medium">{edu.grade}</span>
                     </div>
                   </div>
                 </div>

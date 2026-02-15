@@ -28,12 +28,12 @@ const Certifications = () => {
           {certifications.map((cert, i) => (
             <AnimatedSection key={i} delay={i * 0.06}>
               <motion.div
-                className="glass-card flex items-center gap-3 rounded-lg p-4"
-                whileHover={{ y: -2, x: 4, boxShadow: 'var(--card-shadow-hover)' }}
+                className="glass-card glass-card-violet flex items-center gap-3 rounded-lg p-4 border border-border/50 hover:border-accent/20 transition-colors"
+                whileHover={{ y: -2, x: 4 }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >
                 <motion.div whileHover={{ rotate: 15, scale: 1.15 }}>
-                  <Award size={18} className="text-primary shrink-0" />
+                  <Award size={18} className="text-accent shrink-0" />
                 </motion.div>
                 <span className="text-sm text-foreground">{cert}</span>
               </motion.div>

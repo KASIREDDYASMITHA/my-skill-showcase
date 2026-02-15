@@ -48,7 +48,7 @@ const Skills = () => {
             <AnimatedSection key={cat.title} delay={i * 0.08}>
               <motion.div
                 className="glass-card rounded-xl p-6 h-full"
-                whileHover={{ y: -4, boxShadow: 'var(--card-shadow-hover)' }}
+                whileHover={{ y: -4, boxShadow: '0 4px 20px hsl(187 82% 53% / 0.1), 0 8px 32px hsl(0 0% 0% / 0.3)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <h3 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">{cat.title}</h3>
@@ -56,7 +56,7 @@ const Skills = () => {
                   {cat.skills.map((skill, si) => (
                     <motion.span
                       key={skill}
-                      className="bg-accent text-accent-foreground text-xs font-medium px-3 py-1.5 rounded-full"
+                      className="border border-primary/30 text-primary text-xs font-medium px-3 py-1.5 rounded-full hover:border-primary/60 hover:bg-primary/5 transition-colors"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
