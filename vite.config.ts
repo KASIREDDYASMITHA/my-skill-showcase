@@ -4,8 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/my-skill-showcase/",
-
+  base: "./",
   server: {
     host: "::",
     port: 8080,
@@ -13,16 +12,13 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-
   plugins: [
     react(),
     ...(mode === "development" ? [componentTagger()] : []),
   ],
-
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
 }));
-
