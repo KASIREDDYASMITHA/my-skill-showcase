@@ -31,7 +31,7 @@ const Contact = () => {
           <div className="flex items-center justify-center gap-4">
             {[
               { href: 'https://github.com/KASIREDDYASMITHA', icon: Github },
-              { href: 'https://www.linkedin.com/in/kasireddy-asmitha', icon: Linkedin },
+              { href: 'https://www.linkedin.com/in/kasireddyasmitha', icon: Linkedin },
             ].map(({ href, icon: Icon }) => (
               <motion.a
                 key={href}
