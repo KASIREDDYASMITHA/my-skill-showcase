@@ -1,7 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import DarkModeToggle from './DarkModeToggle';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -39,8 +38,9 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-card/80 backdrop-blur-xl border-b border-border shadow-sm' : 'bg-transparent'
+        scrolled ? 'backdrop-blur-xl border-b border-border/50 shadow-lg' : 'bg-transparent'
       }`}
+      style={scrolled ? { background: 'rgba(11, 18, 32, 0.85)' } : undefined}
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <motion.a
@@ -70,11 +70,9 @@ const Navbar = () => {
               </a>
             </li>
           ))}
-          <li><DarkModeToggle /></li>
         </ul>
 
         <div className="flex md:hidden items-center gap-2">
-          <DarkModeToggle />
           <button className="text-foreground p-2" onClick={() => setOpen(!open)}>
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -87,7 +85,8 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card/95 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="md:hidden backdrop-blur-xl border-b border-border/50 overflow-hidden"
+            style={{ background: 'rgba(11, 18, 32, 0.95)' }}
           >
             <ul className="flex flex-col items-center gap-4 py-4">
               {navLinks.map((l, i) => (

@@ -49,21 +49,31 @@ const CustomCursor = () => {
 
   if (isTouchDevice.current || !visible) return null;
 
-  const ringColor = hoverType === 'button' ? 'rgba(45,212,191,0.5)'
-    : hoverType === 'link' ? 'rgba(34,211,238,0.5)'
-    : hoverType === 'card' ? 'rgba(45,212,191,0.3)'
-    : 'rgba(255,255,255,0.2)';
+  // Cyan core with violet/cyan blended ring
+  const ringColor = hoverType === 'button' ? 'rgba(34,211,238,0.5)'
+    : hoverType === 'link' ? 'rgba(34,211,238,0.4)'
+    : hoverType === 'card' ? 'rgba(168,85,247,0.3)'
+    : 'rgba(34,211,238,0.15)';
 
   const ringSize = hoverType === 'card' ? 48 : hoverType === 'default' ? 32 : 40;
+
+  const glowShadow = hoverType === 'card'
+    ? '0 0 20px rgba(168,85,247,0.3), 0 0 40px rgba(34,211,238,0.15)'
+    : hoverType === 'button'
+    ? '0 0 20px rgba(34,211,238,0.4)'
+    : hoverType === 'link'
+    ? '0 0 15px rgba(34,211,238,0.3)'
+    : 'none';
 
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 z-[9999] pointer-events-none hidden md:block"
         style={{ x: dotX, y: dotY, translateX: '-50%', translateY: '-50%' }}
       >
         <motion.div
-          className="rounded-full bg-primary"
+          className="rounded-full"
+          style={{ background: 'hsl(187 82% 53%)' }}
           animate={{ scale: clicking ? 0.6 : 1, width: 8, height: 8 }}
           transition={{ type: 'spring', stiffness: 500 }}
         />
@@ -78,7 +88,7 @@ const CustomCursor = () => {
             width: clicking ? ringSize - 8 : ringSize,
             height: clicking ? ringSize - 8 : ringSize,
             borderColor: ringColor,
-            boxShadow: hoverType !== 'default' ? `0 0 20px ${ringColor}` : 'none',
+            boxShadow: glowShadow,
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         />

@@ -30,14 +30,14 @@ const Projects = () => {
           {projects.map((project, i) => (
             <AnimatedSection key={i} delay={i * 0.15}>
               <motion.div
-                className="project-card glass-card rounded-xl p-6 group"
-                whileHover={{ y: -6, boxShadow: 'var(--card-shadow-hover)' }}
+                className="project-card glass-card rounded-xl p-6 group border border-border/50 hover:border-primary/30 transition-colors"
+                whileHover={{ y: -6, boxShadow: '0 4px 30px hsl(187 82% 53% / 0.12), 0 8px 40px hsl(0 0% 0% / 0.3)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">{project.title}</h3>
-                    <span className="text-xs text-muted-foreground">{project.period}</span>
+                    <span className="text-xs text-muted-foreground font-mono">{project.period}</span>
                   </div>
                   <motion.div whileHover={{ scale: 1.2, rotate: 15 }}>
                     <ExternalLink size={18} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-1" />
@@ -48,7 +48,7 @@ const Projects = () => {
                   {project.tags.map((tag, ti) => (
                     <motion.span
                       key={tag}
-                      className="bg-accent text-accent-foreground text-xs font-medium px-2.5 py-1 rounded"
+                      className="border border-primary/20 text-primary/80 text-xs font-medium px-2.5 py-1 rounded bg-primary/5"
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
