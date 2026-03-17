@@ -72,7 +72,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <TypeWriter text="Web Development • Python • SQL • AI Tools" delay={800} />
+              <TypeWriter text="Web Development • Python • SQL • AI Tools " delay={800} />
             </motion.p>
             <motion.p
               className="text-muted-foreground leading-relaxed max-w-xl text-sm md:text-base"
