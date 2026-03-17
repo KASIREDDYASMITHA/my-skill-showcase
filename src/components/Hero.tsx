@@ -80,7 +80,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              Entry-level Full Stack Developer with hands-on experience building responsive web applications using HTML, CSS, JavaScript, Python, and SQL. Developed multiple real-world projects involving frontend UI, backend logic, and database integration, while leveraging AI tools to accelerate development and improve UI design. Seeking an opportunity to contribute to production-ready applications and grow as a software engineer.
+              Entry-level Full Stack Developer with hands-on experience building responsive web applications. Skilled in frontend UI, backend logic, and database integration using HTML, CSS, JavaScript, Python, and SQL. Leveraged AI tools to accelerate development and enhance UI/UX. Passionate about contributing to production-ready applications and growing as a software engineer.
             </motion.p>
 
             {/* Contact info */}
