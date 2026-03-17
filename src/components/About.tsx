@@ -7,7 +7,7 @@ const education = [
     degree: 'Bachelor of Technology (B.Tech) in Computer Science – Data Science Specialization',
     school: 'Sphoorthy Engineering College',
     period: '11/2022 – 05/2026',
-    grade: 'CGPA: 8.50',
+    grade: 'CGPA: 8.59',
   },
   {
     degree: 'Intermediate',
